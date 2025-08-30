@@ -9,6 +9,9 @@ h6 = False
 h7 = False 
 h8 = False
 h9 = False
+
+#Base de conocimiento
+bc = []
     
  #Reglas de el razonamiento
  #Reciben como parametro un texto   
