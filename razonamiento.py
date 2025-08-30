@@ -1,20 +1,22 @@
-import threading
 
-h1 = False
-h2 = False
-h3 = False
-h4 = False
-h5 = False
-h6 = False
-h7 = False 
-h8 = False
-h9 = False
 
-#Base de conocimiento
-bc = []
-    
+#su primer elemento es su indice y su segundo es el numero de condiciones 
+R1 = [1,3,"h8","h6","h5"]
+R2 = [2,2,"h6","h3"]
+R3 = [3,2,"h7","h4"]
+R4 = [4,1,"h8"]
+R5 = [5,1,"h6"]
+R6 = [6,2,"h9","h1"]
+R7 = [7,1,"h7"]
+R8 = [8,2,"h1","h7"]
+R9 = [9,2,"h1","h8"]
+
+
+
+
  #Reglas de el razonamiento
- #Reciben como parametro un texto   
+ #Reciben como parametro un texto h1,h2,h3,...,h9
+
 
 def regla_1(a,b,c):
    h8 = True if a == "h8" else False
@@ -51,11 +53,21 @@ def regla_6(a,b):
    h2 = True if h9 and h1 else False
    return h2
 
-def reglas(a):
-  print(type(a))
+def regla_7(a):
+   h7 = True if a == "h7" else False
+   h6 = True if h7 else False
+   return h6
 
+def regla_8(a,b):
+   h1 = True if a == "h1" else False
+   h7 = True if b == "h7" else False
+   h9 = True if a and b else False
+   return h9
 
+def regla_9(a,b):
+   h1 = True if a == "h1" else False
+   h8 = True if b == "h8" else False
+   h6 = True if a and b else False
+   return h6
 
-if __name__ == '__main__':
-   print()
 
