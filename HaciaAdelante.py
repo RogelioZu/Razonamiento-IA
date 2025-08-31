@@ -6,13 +6,12 @@ class HaciaAdelante:
         self.meta = meta
         self.bc = bc
         
-
     def proceso(self):
         extracciones = []
         print(self.bc)
         print("Con cual elemento de la bc deseas extraer?")
         extraer = input()
-
+        
 
         if extraer in r.R1:
             extracciones.append(r.R1)
@@ -32,10 +31,39 @@ class HaciaAdelante:
             extracciones.append(r.R8)
         if extraer in r.R9:
             extracciones.append(r.R9)
-        else:
-            print("No se encontro ninguna regla con la condicion ")
 
         print(extracciones)
+        print(self.resolucion_de_conflictos(extracciones))
 
-    def resolucion_de_conflictos(self,Reglas):
-       print()
+        
+
+    def resolucion_de_conflictos(self,reglas):
+       
+       #convertimos la base de conocimiento en un conjunto para facilitar esto
+       set_bc = set(self.bc)
+       #variable para guardar la mejor regla
+       mejor_regla = []
+       max_coincidencias = -1
+
+       for regla in reglas:
+           indice_actual = regla[0]
+           condiciones_actuales = regla[1:]
+           #calculamos cuantas condiciones tiene la regla
+           coincidencias_actuales = len(set_bc.intersection(condiciones_actuales))
+           print(f"Regla ID {indice_actual}: {condiciones_actuales} -> Coincidencias: {coincidencias_actuales}")
+
+           if coincidencias_actuales > max_coincidencias and len(condiciones_actuales) - coincidencias_actuales == 0:
+               max_coincidencias = coincidencias_actuales
+               mejor_regla = [regla]
+               return mejor_regla
+           elif coincidencias_actuales == max_coincidencias:
+               if indice_actual < mejor_regla[0][0]:
+                   mejor_regla = [regla]
+                   print(mejor_regla[0][0])
+                   return mejor_regla
+        
+    
+    
+    
+        
+        
