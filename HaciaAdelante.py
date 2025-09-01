@@ -41,7 +41,7 @@ class HaciaAdelante:
                 break
 
             print(f"Reglas en conflicto {extracciones}")
-            mejor_regla = self.resolucion_de_conflictos(extracciones)
+            mejor_regla = r.resolucion_de_conflictos(extracciones,self.bc)
 
             if mejor_regla is None:
                 print("No se pudo resolver ninguna regla. Proceso terminado.")
@@ -73,33 +73,6 @@ class HaciaAdelante:
             
         
 
-    def resolucion_de_conflictos(self,reglas):
-       
-       #convertimos la base de conocimiento en un conjunto para facilitar esto
-       set_bc = set(self.bc)
-       #variable para guardar la mejor regla
-       mejor_regla = []
-       max_coincidencias = -1
-
-       for regla in reglas:
-           indice_actual = regla[0]
-           condiciones_actuales = regla[1:]
-           #calculamos cuantas condiciones tiene la regla
-           coincidencias_actuales = len(set_bc.intersection(condiciones_actuales))
-           print(f"Regla: {indice_actual} : {condiciones_actuales} -> Coincidencias: {coincidencias_actuales}")
-
-           if coincidencias_actuales > max_coincidencias and len(condiciones_actuales) - coincidencias_actuales == 0:
-               max_coincidencias = coincidencias_actuales
-               mejor_regla = [regla]
-               print(f"Gana conflicto regla: {indice_actual}")
-               return mejor_regla[0][0]
-           elif coincidencias_actuales == max_coincidencias:
-               if indice_actual < mejor_regla[0][0]:
-                   mejor_regla = [regla]
-                   print(f"Gana conflicto regla: {indice_actual}")
-                   return mejor_regla[0][0]
-        
-    
     
     
         

@@ -16,11 +16,12 @@ print(f"Base de conocimiento {bc}")
 print("meta: " + meta)
 
 
-"""
-adelante = A.HaciaAdelante(meta,bc)
-adelante.proceso()
 
-"""
+#adelante = A.HaciaAdelante(meta,bc)
+#adelante.proceso()
+
+
+
 
 atras = AS.HaciaAtras(meta,bc)
 atras.proceso()

@@ -42,3 +42,6 @@ class HaciaAtras:
             extraer = extracciones[0]
 
         print(f"Regla a analizar: {extraer}")
+
+        sub_objetivo = random.choice(extraer[1:])
+        print(f"Sub objetivo: {sub_objetivo} (Elegido al azar)")
