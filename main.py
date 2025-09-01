@@ -2,16 +2,27 @@ from tkinter import *
 import HaciaAdelante as A
 import HaciaAtras as AS
 
-window = Tk()
-label = Label(window, text = "Escriba 2 elementos para la base de conocimiento: ").pack()
-textField1 = Text(height=1, width=20).pack()
-textField2 = Text(height=1, width=20).pack()
-textField3 = Text(height=1, width=20).pack()
-label2 = Label(window, text="Escriba la meta:").pack()
-metaTextField = Text(height=1, width=20).pack()
-procesarBtn = Button(window, text = "procesar").pack()
+class Gui:
+    def __init__(self):
+        mainWindow = Tk()
+        label = Label(mainWindow, text = "Escriba 2 elementos para la base de conocimiento: ").pack()
 
-window.mainloop()
+        entry1 = Entry(mainWindow).pack()
+        entry2 = Entry(mainWindow).pack()
+        entry3 = Entry(mainWindow).pack()
+        entries = [entry1, entry2, entry3]
+
+        label2 = Label(mainWindow, text="Escriba la meta:").pack()
+        metaTextField = Entry(mainWindow).pack()
+        procesarBtn = Button(mainWindow, text = "procesar", command=self.procesar).pack()
+
+
+        mainWindow.mainloop()
+
+    def procesar(self):
+        print("procesar presionado")
+
+Gui()
 
 bc = []
 
@@ -26,12 +37,8 @@ print(f"Base de conocimiento {bc}")
 print("meta: " + meta)
 
 
-
 #adelante = A.HaciaAdelante(meta,bc)
 #adelante.proceso()
-
-
-
 
 atras = AS.HaciaAtras(meta,bc)
 atras.proceso()
