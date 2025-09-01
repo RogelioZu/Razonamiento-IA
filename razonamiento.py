@@ -18,56 +18,23 @@ R9 = [9,"h1","h8"]
  #Reciben como parametro un texto h1,h2,h3,...,h9
 
 
-def regla_1(a,b,c):
-   h8 = True if a == "h8" else False
-   h6 = True if b == "h6" else False
-   h5 = True if c == "h5" else False
-   h4 = True if h8 and h6 and h5 else False
-   return h4
-
-def regla_2(a,b):
-   h6 = True if a == "h6" else False
-   h3 = True if b == "h3" else False
-   h9 = True if h6 and h3 else False
-   return h9
-
-def regla_3(a,b):
-   h7 = True if a == "h7" else False
-   h4 = True if b == "h4" else False
-   h9 = True if h7 and h4 else False
-   return h9
-   
-def regla_4(a):
-   h8 = True if a == "h8" else False
-   h1 = True if h8 else False
-   return h1
-
-def regla_5(a):
-    h6 = True if a == "h6" else False
-    h5 = True if h6 else False
-    return h5
-
-def regla_6(a,b):
-   h9 = True if a == "h9" else False
-   h1 = True if b == "h1" else False
-   h2 = True if h9 and h1 else False
-   return h2
-
-def regla_7(a):
-   h7 = True if a == "h7" else False
-   h6 = True if h7 else False
-   return h6
-
-def regla_8(a,b):
-   h1 = True if a == "h1" else False
-   h7 = True if b == "h7" else False
-   h9 = True if a and b else False
-   return h9
-
-def regla_9(a,b):
-   h1 = True if a == "h1" else False
-   h8 = True if b == "h8" else False
-   h6 = True if a and b else False
-   return h6
-
-
+def nuevo_conocimiento(a):
+    if a == 1:
+        return "h4"
+    elif a == 2:
+        return "h9"
+    elif a == 3:
+        return "h9"
+    elif a == 4:
+        return "h1"
+    elif a == 5:
+        return "h5"
+    elif a == 6:
+        return "h2"
+    elif a == 7:
+        return "h6"
+    elif a == 8:
+        return "h9"
+    elif a == 9:
+        return "h6"
+    

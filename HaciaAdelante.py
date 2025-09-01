@@ -33,7 +33,9 @@ class HaciaAdelante:
             extracciones.append(r.R9)
 
         print(extracciones)
-        print(self.resolucion_de_conflictos(extracciones))
+        nuevo = r.nuevo_conocimiento(self.resolucion_de_conflictos(extracciones))
+        self.bc.append(nuevo)
+        print(self.bc)
 
         
 
@@ -55,12 +57,11 @@ class HaciaAdelante:
            if coincidencias_actuales > max_coincidencias and len(condiciones_actuales) - coincidencias_actuales == 0:
                max_coincidencias = coincidencias_actuales
                mejor_regla = [regla]
-               return mejor_regla
+               return mejor_regla[0][0]
            elif coincidencias_actuales == max_coincidencias:
                if indice_actual < mejor_regla[0][0]:
                    mejor_regla = [regla]
-                   print(mejor_regla[0][0])
-                   return mejor_regla
+                   return mejor_regla[0][0]
         
     
     
