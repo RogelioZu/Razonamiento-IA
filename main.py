@@ -6,7 +6,7 @@ bc = []
 
 bc.append(input())
 bc.append(input())
-bc.append(input())
+
 
 print("Introduzca la meta: ")
 meta = input()

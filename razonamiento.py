@@ -1,6 +1,6 @@
 
 
-#su primer elemento es su indice y su segundo es el numero de condiciones 
+#su primer elemento es su indice
 R1 = [1,"h8","h6","h5"]
 R2 = [2,"h6","h3"]
 R3 = [3,"h7","h4"]
@@ -15,8 +15,7 @@ R9 = [9,"h1","h8"]
 
 
  #Reglas de el razonamiento
- #Reciben como parametro un texto h1,h2,h3,...,h9
-
+ 
 
 def nuevo_conocimiento(a):
     if a == 1:
