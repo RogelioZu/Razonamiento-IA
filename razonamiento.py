@@ -1,6 +1,7 @@
 
 
 #su primer elemento es su indice
+#Condiciones de las Reglas
 R1 = [1,"h8","h6","h5"]
 R2 = [2,"h6","h3"]
 R3 = [3,"h7","h4"]
@@ -12,10 +13,18 @@ R8 = [8,"h1","h7"]
 R9 = [9,"h1","h8"]
 
 
+#Conculsiones de la reglas para el razonamiento hacia atras
+CR1 = "h4"
+CR2 = "h9"
+CR3 = "h9"
+CR4 = "h1"
+CR5 = "h5"
+CR6 = "h2"
+CR7 = "h6"
+CR8 = "h9"
+CR9 = "h6"
 
 
- #Reglas de el razonamiento
- 
 
 def nuevo_conocimiento(a):
     if a == 1:
