@@ -4,16 +4,22 @@ import HaciaAtras as AS
 
 class Gui:
     def __init__(self):
+        self.bc = []
+        self.meta = ""
         mainWindow = Tk()
         label = Label(mainWindow, text = "Escriba 2 elementos para la base de conocimiento: ").pack()
 
-        entry1 = Entry(mainWindow).pack()
-        entry2 = Entry(mainWindow).pack()
-        entry3 = Entry(mainWindow).pack()
-        entries = [entry1, entry2, entry3]
+        self.entry1 = Entry(mainWindow)
+        self.entry2 = Entry(mainWindow)
+        self.entry3 = Entry(mainWindow)
+        self.entries = [self.entry1, self.entry2, self.entry3]
+
+        for entry in self.entries:
+            entry.pack()
 
         label2 = Label(mainWindow, text="Escriba la meta:").pack()
-        metaTextField = Entry(mainWindow).pack()
+        self.metaTextField = Entry(mainWindow)
+        self.metaTextField.pack()
         procesarBtn = Button(mainWindow, text = "procesar", command=self.procesar).pack()
 
 
@@ -22,20 +28,17 @@ class Gui:
     def procesar(self):
         print("procesar presionado")
 
+        for entry in self.entries:
+            if entry.get() == "":
+                break
+            else:
+                self.bc.append(entry.get())
+
+        self.meta = self.metaTextField.get()
+        print(f"Base de conocimiento {self.bc}")
+        print(f"meta: {self.meta}")
+
 Gui()
-
-bc = []
-
-
-bc.append(input())
-bc.append(input())
-
-print("Introduzca la meta: ")
-meta = input()
-
-print(f"Base de conocimiento {bc}")
-print("meta: " + meta)
-
 
 #adelante = A.HaciaAdelante(meta,bc)
 #adelante.proceso()
