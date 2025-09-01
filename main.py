@@ -1,5 +1,6 @@
 import HaciaAdelante as A
 
+
 print("Escriba 3 elemntos para la base de conocimiento: ")
 bc = []
 

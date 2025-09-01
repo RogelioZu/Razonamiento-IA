@@ -1,4 +1,5 @@
 import razonamiento as r
+import random
 
 class HaciaAdelante:
 
@@ -9,9 +10,11 @@ class HaciaAdelante:
     def proceso(self):
         extracciones = []
         print(self.bc)
-        print("Con cual elemento de la bc deseas extraer?")
-        extraer = input()
+        # print("Con cual elemento de la bc deseas extraer?")
+        extraer = random.choice(self.bc)
+        print(f"Elemento a extraer primero: {extraer} (elegido al azar)")
         iteracion = 1
+        print("Iteracion: 1")
 
         while True:
             if extraer in r.R1:
@@ -37,7 +40,7 @@ class HaciaAdelante:
                 print("No se encontraron reglas que cumplan termina el proceso")
                 break
 
-            print(extracciones)
+            print(f"Reglas en conflicto {extracciones}")
             mejor_regla = self.resolucion_de_conflictos(extracciones)
 
             if mejor_regla is None:
@@ -83,15 +86,17 @@ class HaciaAdelante:
            condiciones_actuales = regla[1:]
            #calculamos cuantas condiciones tiene la regla
            coincidencias_actuales = len(set_bc.intersection(condiciones_actuales))
-           print(f"Regla ID {indice_actual}: {condiciones_actuales} -> Coincidencias: {coincidencias_actuales}")
+           print(f"Regla: {indice_actual} : {condiciones_actuales} -> Coincidencias: {coincidencias_actuales}")
 
            if coincidencias_actuales > max_coincidencias and len(condiciones_actuales) - coincidencias_actuales == 0:
                max_coincidencias = coincidencias_actuales
                mejor_regla = [regla]
+               print(f"Gana conflicto regla: {indice_actual}")
                return mejor_regla[0][0]
            elif coincidencias_actuales == max_coincidencias:
                if indice_actual < mejor_regla[0][0]:
                    mejor_regla = [regla]
+                   print(f"Gana conflicto regla: {indice_actual}")
                    return mejor_regla[0][0]
         
     
