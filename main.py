@@ -3,16 +3,13 @@ import HaciaAdelante as A
 import HaciaAtras as AS
 
 window = Tk()
-label = Label(window, text = "Escriba 2 elementos para la base de conocimiento: ")
-textField1 = Text(height=1, width=20)
-textField2 = Text(height=1, width=20)
-textField3 = Text(height=1, width=20)
-button = Button(window, text = "procesar")
-label.pack()
-textField1.pack()
-textField2.pack()
-textField3.pack()
-button.pack()
+label = Label(window, text = "Escriba 2 elementos para la base de conocimiento: ").pack()
+textField1 = Text(height=1, width=20).pack()
+textField2 = Text(height=1, width=20).pack()
+textField3 = Text(height=1, width=20).pack()
+label2 = Label(window, text="Escriba la meta:").pack()
+metaTextField = Text(height=1, width=20).pack()
+procesarBtn = Button(window, text = "procesar").pack()
 
 window.mainloop()
 
