@@ -47,7 +47,7 @@ class HaciaAdelante:
                 print("No se pudo resolver ninguna regla. Proceso terminado.")
                 break
 
-            nuevo = r.nuevo_conocimiento(mejor_regla)
+            nuevo = r.nuevo_conocimiento_adelante(mejor_regla)
             if nuevo is None:
                 print("No se pudo generar nuevo conocimiento. Proceso terminado.")
                 break

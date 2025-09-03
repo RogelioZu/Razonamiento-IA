@@ -54,11 +54,7 @@ def resolucion_de_conflictos(reglas,bc):
     
     
 
-
-
-
-
-def nuevo_conocimiento(a):
+def nuevo_conocimiento_adelante(a):
     if a == 1:
         return "h4"
     elif a == 2:
@@ -78,3 +74,42 @@ def nuevo_conocimiento(a):
     elif a == 9:
         return "h6"
     
+
+
+def sub_objetivo(a):
+        
+        coincidencias = []
+     #Vemos donde se encuentra  a como conclusion
+        if a == CR1:
+            coincidencias.append(R1)
+        if a == CR2:
+            coincidencias.append(R2)    
+        if a == CR3:
+            coincidencias.append(R3)
+        if a == CR4:
+            coincidencias.append(R4)
+        if a == CR5:
+            coincidencias.append(R5)    
+        if a == CR6:
+            coincidencias.append(R6)
+        if a == CR7:
+            coincidencias.append(R7)
+        if a == CR8:
+            coincidencias.append(R8)    
+        if a == CR9:
+            coincidencias.append(R9)
+
+        #Devuelme las coincidencias
+        return coincidencias
+
+
+
+
+def nuevo_sub_objetivo(sub, bc):
+    
+    set_bc = set(bc)
+
+    if sub in set_bc:
+        return sub
+    else:
+        return set_bc.difference(sub)

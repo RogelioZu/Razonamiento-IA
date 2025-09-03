@@ -13,7 +13,7 @@ print("Introduzca la meta: ")
 meta = input()
 
 print(f"Base de conocimiento {bc}")
-print("meta: " + meta)
+print(f"meta: {meta}")
 
 
 
