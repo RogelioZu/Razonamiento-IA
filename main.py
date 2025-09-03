@@ -37,14 +37,14 @@ class Gui:
 
         self.meta = self.metaTextField.get()
 
+        adelante = A.HaciaAdelante(self.meta, self.bc)
+        adelante.proceso()
+
+        atras = AS.HaciaAtras(self.meta, self.bc)
+        atras.proceso()
+
         resultsWindow = Toplevel()
         bcLabel = Label(resultsWindow, text=f"Base de conocimiento: {self.bc}").pack()
         metaLabel = Label(resultsWindow, text=f"meta: {self.meta}").pack()
 
 Gui()
-
-#adelante = A.HaciaAdelante(meta,bc)
-#adelante.proceso()
-
-atras = AS.HaciaAtras(self.meta,self.bc)
-atras.proceso()
