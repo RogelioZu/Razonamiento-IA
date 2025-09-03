@@ -1,4 +1,4 @@
-
+import random
 
 #su primer elemento es su indice
 #Condiciones de las Reglas
@@ -109,11 +109,45 @@ def sub_objetivo(a):
 
 
 
-def nuevo_sub_objetivo(sub, bc):
-    
-    set_bc = set(bc)
+def condiciones_hacia_atras(a):
+ 
+        coincidencias = []
+        #Vemos donde se encuentra  a como conclusion
+        if a == 1:
+            coincidencias.append(R1)
+        if a == 2:
+            coincidencias.append(R2)    
+        if a == 3:
+            coincidencias.append(R3)
+        if a == 4:
+            coincidencias.append(R4)
+        if a == 5:
+            coincidencias.append(R5)    
+        if a == 6:
+            coincidencias.append(R6)
+        if a == 7:
+            coincidencias.append(R7)
+        if a == 8:
+            coincidencias.append(R8)    
+        if a == 9:
+            coincidencias.append(R9)
 
-    if sub in set_bc:
-        return sub
+        #Devuelme las coincidencias
+        return coincidencias
+    
+    
+
+def nuevo_sub_objetivo(a,bc):
+
+    set_bc = set(bc)
+    set_a = set(a)
+    if set_a in set_bc:
+        
+        return None
     else:
-        return set_bc.difference(sub)
+        diferencia = set_a.difference(set_bc)
+        if len(diferencia) > 1:
+            return list(random.choice(diferencia))
+        else:
+            return list(diferencia)
+
