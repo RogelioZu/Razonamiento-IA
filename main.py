@@ -62,15 +62,31 @@ class Gui:
         frame.pack(fill=BOTH, expand=True)
 
         # Panel para HaciaAdelante
-        adelante_panel = Text(frame, wrap=WORD, width=50)
+        adelante_frame = Frame(frame)
+        adelante_frame.pack(side=LEFT, fill=BOTH, expand=True)
+
+        Label(adelante_frame, text="Resultado Hacia Adelante", font=("Arial", 12, "bold")).pack()
+        adelante_scroll = Scrollbar(adelante_frame)
+        adelante_scroll.pack(side=RIGHT, fill=Y)
+
+        adelante_panel = Text(adelante_frame, wrap=WORD, width=50, yscrollcommand=adelante_scroll.set)
         adelante_panel.insert(END, adelante_text)
         adelante_panel.config(state=DISABLED)
         adelante_panel.pack(side=LEFT, fill=BOTH, expand=True)
+        adelante_scroll.config(command=adelante_panel.yview)
 
         # Panel para HaciaAtras
-        atras_panel = Text(frame, wrap=WORD, width=50)
+        atras_frame = Frame(frame)
+        atras_frame.pack(side=LEFT, fill=BOTH, expand=True)
+
+        Label(atras_frame, text="Resultado Hacia Atrás", font=("Arial", 12, "bold")).pack()
+        atras_scroll = Scrollbar(atras_frame)
+        atras_scroll.pack(side=RIGHT, fill=Y)
+
+        atras_panel = Text(atras_frame, wrap=WORD, width=50, yscrollcommand=atras_scroll.set)
         atras_panel.insert(END, atras_text)
         atras_panel.config(state=DISABLED)
         atras_panel.pack(side=LEFT, fill=BOTH, expand=True)
+        atras_scroll.config(command=atras_panel.yview)
 
 Gui()
