@@ -7,7 +7,8 @@ class Gui:
         self.bc = []
         self.meta = ""
         mainWindow = Tk()
-        label = Label(mainWindow, text = "Escriba 2 elementos para la base de conocimiento: ").pack()
+        mainWindow.title("Razonamiento IA")
+        label = Label(mainWindow, text = "Escriba de 2 a 3 elementos para la base de conocimiento: ").pack()
 
         self.entry1 = Entry(mainWindow)
         self.entry2 = Entry(mainWindow)
@@ -35,13 +36,15 @@ class Gui:
                 self.bc.append(entry.get())
 
         self.meta = self.metaTextField.get()
-        print(f"Base de conocimiento {self.bc}")
-        print(f"meta: {self.meta}")
+
+        resultsWindow = Toplevel()
+        bcLabel = Label(resultsWindow, text=f"Base de conocimiento: {self.bc}").pack()
+        metaLabel = Label(resultsWindow, text=f"meta: {self.meta}").pack()
 
 Gui()
 
 #adelante = A.HaciaAdelante(meta,bc)
 #adelante.proceso()
 
-atras = AS.HaciaAtras(meta,bc)
+atras = AS.HaciaAtras(self.meta,self.bc)
 atras.proceso()
