@@ -50,7 +50,11 @@ def resolucion_de_conflictos(reglas,bc):
                    mejor_regla = [regla]
                    print(f"Gana conflicto regla: {indice_actual}")
                    return mejor_regla[0][0]
-        
+           elif coincidencias_actuales > max_coincidencias and coincidencias_actuales > 0:
+                max_coincidencias = coincidencias_actuales
+                mejor_regla = [regla]
+                return mejor_regla[0][0]
+               
     
     
 
