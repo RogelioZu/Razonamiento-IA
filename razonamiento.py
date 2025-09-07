@@ -25,58 +25,6 @@ CR8 = "h9"
 CR9 = "h6"
 
 
-def resolucion_de_conflictos(reglas,bc):
-       
-       #convertimos la base de conocimiento en un conjunto para facilitar esto
-       set_bc = set(bc)
-       #variable para guardar la mejor regla
-       mejor_regla = []
-       max_coincidencias = -1
-
-       for regla in reglas:
-           indice_actual = regla[0]
-           condiciones_actuales = regla[1:]
-           #calculamos cuantas condiciones tiene la regla
-           coincidencias_actuales = len(set_bc.intersection(condiciones_actuales))
-           print(f"Regla: {indice_actual} : {condiciones_actuales} -> Coincidencias: {coincidencias_actuales}")
-
-           if coincidencias_actuales > max_coincidencias and len(condiciones_actuales) - coincidencias_actuales == 0:
-               max_coincidencias = coincidencias_actuales
-               mejor_regla = [regla]
-               print(f"Gana conflicto regla: {indice_actual}")
-               return mejor_regla[0][0]
-           elif coincidencias_actuales == max_coincidencias:
-               if indice_actual < mejor_regla[0][0]:
-                   mejor_regla = [regla]
-                   print(f"Gana conflicto regla: {indice_actual}")
-                   return mejor_regla[0][0]
-           elif coincidencias_actuales > max_coincidencias and coincidencias_actuales > 0:
-                max_coincidencias = coincidencias_actuales
-                mejor_regla = [regla]
-                return mejor_regla[0][0]
-               
-    
-    
-
-def nuevo_conocimiento_adelante(a):
-    if a == 1:
-        return "h4"
-    elif a == 2:
-        return "h9"
-    elif a == 3:
-        return "h9"
-    elif a == 4:
-        return "h1"
-    elif a == 5:
-        return "h5"
-    elif a == 6:
-        return "h2"
-    elif a == 7:
-        return "h6"
-    elif a == 8:
-        return "h9"
-    elif a == 9:
-        return "h6"
     
 
 
