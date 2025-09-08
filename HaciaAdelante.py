@@ -75,6 +75,10 @@ class HaciaAdelante:
 
         while True:
             print("\n------------------")
+            #Vemos si el objetivo ya es parte de la bc
+            if self.meta in self.bc:
+                print(f"-> '{self.meta}' ya es un hecho conocido.")
+                break
 
             if extraer in R1:
                 extracciones.append(R1)
