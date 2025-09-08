@@ -55,7 +55,7 @@ class HaciaAdelante:
 
         
     def proceso(self):
-
+        print("\n------------------")
         R1 = [1,"h8","h6","h5"]
         R2 = [2,"h6","h3"]
         R3 = [3,"h7","h4"]
@@ -66,14 +66,16 @@ class HaciaAdelante:
         R8 = [8,"h1","h7"]
         R9 = [9,"h1","h8"]
         extracciones = []
-        print(self.bc)
+        print(f"Base de conocimiento inicial {self.bc}")
         # print("Con cual elemento de la bc deseas extraer?")
         extraer = random.choice(self.bc)
-        print(f"Elemento a extraer primero: {extraer} (elegido al azar)")
+        print(f"Intentando resolver: {extraer} (elegido al azar)")
         iteracion = 1
         print("Iteracion: 1")
 
         while True:
+            print("\n------------------")
+
             if extraer in R1:
                 extracciones.append(R1)
             if extraer in R2:
@@ -93,6 +95,7 @@ class HaciaAdelante:
             if extraer in R9:
                 extracciones.append(R9)
 
+           
             if not extracciones:
                 print("No se encontraron reglas que cumplan termina el proceso")
                 break
